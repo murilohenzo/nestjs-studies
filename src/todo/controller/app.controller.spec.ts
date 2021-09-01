@@ -9,7 +9,13 @@ describe('TodoController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [TodoController],
-      providers: [TodoService, FakeTodoRepository],
+      providers: [
+        TodoService,
+        {
+          provide: 'FakeTodoRepository',
+          useClass: FakeTodoRepository,
+        },
+      ],
     }).compile();
 
     todoController = app.get<TodoController>(TodoController);

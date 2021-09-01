@@ -14,7 +14,7 @@ import { TodoService } from '../service/create-todo.service';
 @Controller('/api/v1/todos')
 export class TodoController {
   constructor(
-    @Inject('FakeTodoRepository')
+    @Inject('TodoRepository')
     private readonly _todoService: TodoService,
   ) {}
 

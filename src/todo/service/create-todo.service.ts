@@ -7,7 +7,7 @@ import { ITodoRepository } from '../repository/todo.repository.interface';
 @Injectable()
 export class TodoService {
   constructor(
-    @Inject("FakeTodoRepository")
+    @Inject("TodoRepository")
     private _todoRepository: ITodoRepository
     ) {}
   async create(todo: CreateTodoDto): Promise<Todo> {
