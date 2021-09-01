@@ -1,14 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { AppModule } from './app.module';
+import { TodoModule } from './todo.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(TodoModule);
 
   const options = new DocumentBuilder()
     .setTitle('Todo Application')
     .setDescription('Todo API')
-    .setVersion('api/v1/todos')
+    .setVersion('V.0.1')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);

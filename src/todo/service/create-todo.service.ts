@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { CreateTodoDto } from '../dto/create-todo.dto';
 import { Todo } from '../interface/todo.interface';
-import { TodoRepository } from '../repository/create-todo.repository';
+import { ITodoRepository } from '../repository/todo.repository.interface';
 
 @Injectable()
 export class TodoService {
   constructor(
-    private readonly _todoRepository: TodoRepository
+    @Inject("FakeTodoRepository")
+    private _todoRepository: ITodoRepository
     ) {}
   async create(todo: CreateTodoDto): Promise<Todo> {
     return await this._todoRepository.create(todo);

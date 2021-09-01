@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Inject, Post } from '@nestjs/common';
 import {
   ApiOperation,
   ApiInternalServerErrorResponse,
@@ -13,7 +13,10 @@ import { TodoService } from '../service/create-todo.service';
 @ApiTags('/api/v1/todos')
 @Controller('/api/v1/todos')
 export class TodoController {
-  constructor(private readonly _todoService: TodoService) {}
+  constructor(
+    @Inject('FakeTodoRepository')
+    private readonly _todoService: TodoService,
+  ) {}
 
   @Post()
   @HttpCode(201)

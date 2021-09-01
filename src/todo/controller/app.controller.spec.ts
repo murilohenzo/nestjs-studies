@@ -1,8 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoController } from './todos.controller';
 import { TodoService } from '../service/create-todo.service';
-import { TodoRepository } from '../repository/create-todo.repository';
-import { CreateTodoDto } from '../dto/create-todo.dto';
+import { FakeTodoRepository } from '../repository/fake/create-fake-todo.repository';
 
 describe('TodoController', () => {
   let todoController: TodoController;
@@ -10,7 +9,7 @@ describe('TodoController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [TodoController],
-      providers: [TodoService, TodoRepository],
+      providers: [TodoService, FakeTodoRepository],
     }).compile();
 
     todoController = app.get<TodoController>(TodoController);
