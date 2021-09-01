@@ -12,7 +12,7 @@ describe('TodoController', () => {
       providers: [
         TodoService,
         {
-          provide: 'FakeTodoRepository',
+          provide: 'TodoRepository',
           useClass: FakeTodoRepository,
         },
       ],

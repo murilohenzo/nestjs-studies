@@ -31,5 +31,4 @@ export class FakeTodoRepository implements ITodoRepository {
       throw new Error("Not exists todos.");
     }
   }
-  
 }
